@@ -1,0 +1,15 @@
+html, body {
+font-family: arial;
+}
+
+#main {
+width: 640px;
+height: 480px;
+border: 1px solid black;
+}
+
+#chat {
+width:100%;
+height: 80%;
+overflow: scroll;
+}
