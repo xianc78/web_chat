@@ -9,7 +9,12 @@ border: 1px solid black;
 }
 
 #chat {
+background-color: #e0ebeb;
 width:100%;
 height: 80%;
 overflow: scroll;
+}
+
+#message {
+width:100%;
 }

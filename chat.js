@@ -5,7 +5,12 @@ OK = 200;
 READY = 4;
 
 init = function() {
-  nickname = prompt("Enter a nickname");
+  while (true) {
+    nickname = prompt("Enter a nickname");
+    if (nickname != "") {
+      break;
+    }
+  }
   setInterval(update, 3000);
 };
 
@@ -13,14 +18,11 @@ sendMsg = function() {
   var msg, xmlhttp;
   msg = document.getElementById("message").value;
   xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (this.readyState === READY & this.status === OK) {
-      alert(this.responseText);
-    }
-  };
   xmlhttp.open("POST", "submit.php", true);
   xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xmlhttp.send("nickname=" + nickname + "&message=" + msg);
+  document.getElementById("message").value = "";
+  update();
 };
 
 update = function() {
@@ -33,6 +35,12 @@ update = function() {
   };
   xmlhttp.open("GET", "read.php", true);
   xmlhttp.send();
+};
+
+checkKeyEvents = function(event) {
+  if (event.key == "Enter") {
+    sendMsg();
+  }
 };
 
 // ---

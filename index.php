@@ -7,8 +7,8 @@
 <div id="main">
 <div id="chat">
 </div>
-Message: <input type="text" id="message" name="message" />
-<input type="button" id="send" value="Send" onClick="sendMsg()" />
+Message: <input type="text" id="message" name="message" onkeydown="checkKeyEvents(event)" />
+<!--<input type="button" id="send" value="Send" onClick="sendMsg()" />-->
 </div>
 </body>
 </html>
